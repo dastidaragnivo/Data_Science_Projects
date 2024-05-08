@@ -1,0 +1,117 @@
+Dimensionality reduction :
+
+It is a technique used in ML to reduce the number of dimensions such that 
+it retains only those most important components.
+
+
+Advantages:
+
+1. Reduces computational complexity
+2. Reduces overfitting
+3. Helps in visualizing by reducing the number of high dimensions.
+
+
+--Dimensionality reduction is used both in supervised and unsupervised 
+learning techniques.
+
+PCA can be used for both supervised and unsupervised learning techniques
+LDA can be used only for supervised learning technique
+-----------------------------------------------------------------------------
+PCA - Principal Component Analysis
+
+-- PCA components are not correlated with each other 
+-- PCA preserves the correlation between features while building the PC components
+-- The principal components in PCA are created by linear combination of 
+original variables.(Calculated with concepts like eigen values)
+-- The principal components are orthogonal to each other.
+-- The first principal component represents the direction of maximum variance.
+-- PCA always performs well in a normalized dataset.
+-- The no. of PC components generated for a dataset is less than or equal to the 
+total no. of features in the original dataset. 
+
+
+Iris dataset --
+
+Setosa , Versicolor and Virginica.
+
+5 features --> 2 features 
+
+sepal length and sepal width --> highest variance --> PC1 -- > PCA
+
+petal length + sepal length --> output class labels are being classified
+properly --> LDA
+
+-----------------------------------------------------------------------------
+LDA -- Linear Discriminant Analysis 
+
+LDA tries to reduce the dimensions of the feature set while retaining 
+the information that discriminates the output class label as well.
+
+-- LDA tries to find a decision boundary around each cluster of a class 
+
+-- It will then project these data points in a new dimension such that
+all the clusters are separate from each other as much as possible. 
+hence, the individual points in a cluster are closer to the centroid of 
+that particular cluster.
+
+-- These new dimensions form the linear discriminants of the feature set.
+
+
+-----------------------------------------------------------------------
+
+Choose PCA --> When the data is highly irregular in terms of 
+               distribution (skewed)
+Choose LDA --> Uniform distribution 
+
+--------------------------------------------------------------------------
+Reference:
+
+https://builtin.com/data-science/step-step-explanation-principal-component-analysis
+
+-------------------------------------------------------------------------------
+
+House price :
+
+Chennai city at 5 different areas and each area had 2 unique builders 
+
+House price --> target 
+
+Area name , builder name , sqft , balcony , no of bathrooms, no of bedrooms
+presence of a park nearby , hospital , car parking , water availability
+
+==> we let go of sqft --> we will be leftout with 9 columns 
+
+area name , no of bathrooms, no of bedrooms ==> model 
+
+
+
+----------------------------------------------------------------------------
+Unsupervised learning -- there is no y (target)
+
+the result of unsupervised ML is to cluster data points of similar characteristics
+into 1 cluster.
+
+------------------------------------------------------------------------------
+Example for understanding scaling / normalizing the data:
+
+Eg: Employee dataset - about 2000 employees of a company 
+
+Salary/month -- Rs.15,000/- - Rs.5,00,000/-
+Age          -- 21 - 60
+Years of Exp -- 0  - 40 
+
+target -- whether a person will stay or leave the company?
+
+result of normalization/ standardisation of data features:
+
+Salary / month -- 0 to 1
+Age            -- 0 to 1 
+Years of Exp   -- 0 to 1 
+
+Different scalers are available -- MinMax Scaler, Standard Scaler 
+Scaling is necessary whenever there are a number of numerical type feature
+in the dataset.
+
+
+
+

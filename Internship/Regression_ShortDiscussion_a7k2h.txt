@@ -1,0 +1,199 @@
+problem statement -- find out the price of an apartment in a particular city.
+
+Eg: Delhi 
+
+5 areas in Delhi - a,b,c,d,e
+
+2 & 3 bedroom hall kitchen
+
+area name , 2/3 bhk , sqft., balcony , car parking , builder's name ,
+no. of bathrooms, presence of pine trees within the apartment premises, price of the 
+house 
+
+--> factors which affect the price of the apartment = features / independent
+variables/inputs/ predictors
+
+actual price of the house --> output/ outcome = target variable/label/dependent
+variable
+==============================================================================
+
+ML is classified into 2 types : Supervised Learning & Unsupervised learning.
+
+Eg : Bananas, Mangoes, Green grapes, green pear, Apples, Strawberries, Oranges 
+
+grouped them as : 1 : B,M ; 2: A,S ; 3: Gr.grapes & gr.pear ; 4 : Oranges
+
+----------------------------------------
+Supervised learning :
+
+labelled historic data  -- THIS MEANS THE PRESENCE OF OUTPUT ALONG WITH THE INPUTS
+
+2 types : Regression & classification 
+
+Regression : When the output variable / label is of continuous numeric type
+
+Eg: Prediction of house prices , prediction of stock prices, predict the 
+    height of a person , predict the salary of an employee
+
+Algorithms:
+
+Simple Linear , Multiple Linear , Polynomial Regression
+
+Classification : When the output variable / label is of categorical type
+
+Eg: a transaction is fraudulent or not (2), identify the grades of a student (6),
+    whether a person is diabetic or not(2), spam/ham email classification(2)
+    classify a trip as long/medium/short distance (3)
+
+Algorithms: 
+
+Logistic regression , KNN, decision trees, support vector machines etc.,         
+
+
+=============================================================================
+
+
+quantitative variables     |   qualitative variables
+
+- continuous                   - categorical   --- nominal, ordinal & binary
+- discrete                     - nominal -- male , female , transgender 
+Eg:no.of houses, population|   - binary -- true / false 
+                               - ordinal -- tall , medium , short 
+                                           tall > medium > short, grades -A>B>C>D>E>F
+
+
+
+==============================================================================
+
+Supervised Learning --> Regression
+
+Regression 
+
+We opt for the regression supervised ML technique when the target variable
+is of continuous numeric type.
+
+Eg: House Price -- 20 lakh rupees , 33,33,500 rupees as well, 3 crore rupees 
+                   as well
+
+Eg : Weather forecast , stock prices, employee salary , health vitals,
+     product prices etc., 
+============================================================================
+Regression:
+1. Linear Regression --> These algorithms are used when the spread of dataset
+is a linear one.
+
+2.Non-linear Regression --> These algorithms are used when the spread of dataset
+is a non-linear one.
+
+Linear Regression:
+------------------
+
+1. Simple linear regression 
+
+2. Multiple linear regression 
+
+Regression -> statistical technique wherein the strength of relationship
+              between the target and the features is figured out.
+
+1. Simple linear regression 
+----------------------------
+
+    y = mx +c  , y--> house price , x--> sq.ft of the house 
+
+y-->target variable , m --> regression co-efficient, x --> feature, c --> intercept 
+
+1 target variable  & only 1 feature, the model that you built for this
+data is called a simple linear regression model.
+
+=============================================================================
+2. Multiple Linear Regression 
+
+1 target variable and when you have more than 1 feature ==> MLR
+
+    y = b1x1 + b2x2 + b3x3 + b4x4 + ....... + bnxn + c --> hyperplane
+
+
+y -- > target variable , x1, x2, x3, x4 ..xn --> the features present in the
+       dataset, c - intercept , b1, b2 , b3 ...bn --> regression co-efficients
+
+       where b1 -- represents the strength of relationship between x1 & y
+                   for eg: b1 is the regression b/w sqft & house price
+       where b2 -- represents the strength of relationship between x2 & y
+                   for eg: b2 is the regression b/w area name & house price
+
+
+=============================================================================
+
+Steps followed in building a machine learning model:
+
+Once the right data is imported and EDA(Exploratory Data Analysis) is done, 
+
+1. Identify the target variable in your dataset.
+
+2. Separate the features(X) and the target variable(y)
+
+3. Separate our dataset into train and test datasets --split ratio -- 75:25,
+80:20, 70 :30, 60 :40 
+
+4. Building the ML model :
+   (i)  Import the necessary algorithm and Instantiate the estimator object 
+
+        model = LinearRegression() , the "model" variable is called estimator object.
+
+   (ii) Build our model with training dataset -- model.fit() -- features , target of the training dataset
+
+   (iii) Predict the output of the test dataset -- model.predict() -- pass only the test features as input 
+
+   (iv) Validate our model by comparing the predicted output & actual test dataset outputs
+         with the help of suitable evaluation metrics
+  
+=============================================================================
+
+Evaluation : RMSE , R2 score 
+
+R2 score -> co-efficient of determination : how well the model
+has fit the data
+
+root mean squared error(RMSE)
+-----------------------------
+the diff between the predicted values and the actual values 
+
+actual =  25         actual = 20
+predicted = 21       predicted = 24 
+
+pred - actual = -4   = 16 ; pred - actual = 4 = 16 
+
+mean = -4 + 4/2 =0  
+
+16 + 16 /2 = 16 ---> taking square root --> 4 (RMSE value)
+--------------------------------------
+pred - actual = 4 = 16
+
+actual = 31
+predicted = 32
+
+pred - actual = 1 = 1 
+
+total error = 16 + 1 / 2 = 8.5 --> root of 8.5 --> final RMSE value
+
+==============================================================================
+Under fitting / Over fitting :
+-------------------------------
+
+1. Train RMSE & Test RMSE --> both the values are very high --> Underfitting. 
+Soln: switch to another ML algorithm
+
+2. Train RMSE is low & the test RMSE is high --> Overfitting. 
+Soln: check for correlation and try to eliminate it(multicollinearity) , experiment 
+with the hyperparameters of the model,try using another algorithm on the same data
+
+3. Train RMSE is almost equivalent to the test RMSE & when both the values are low
+--> Appropriate fit model
+
+=====================================================================================
+
+Polynomial regression :
+
+https://towardsdatascience.com/polynomial-regression-bbe8b9d97491
+
+==============================================================================

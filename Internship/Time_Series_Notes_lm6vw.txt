@@ -1,0 +1,160 @@
+
+Characteristics of Time Series Data:
+------------------------------------
+--> A time series dataset has observations that are not independent of 
+each other. The current observation will be dependent on previous
+observations. 
+
+--> Time based dependency will be there in all of your data points. (i.e)
+the data points are going to be expressed as a function of time.
+
+--> in these datasets you will be able to observe different patterns 
+like trend, seasonality etc., 
+
+--> The datapoints for a time series analysis have to be collected over regular 
+intervals of time.
+
+
+Goal of time series analysis:
+-----------------------------
+
+-->Identify the underlying factors that lead to a particular trend in the
+time series pattern.
+
+-->Predict future values of a time series variable(forecast) 
+
+==========================================================================
+
+Time Series dataset -- which is collected over a specific period of time.
+                       And, the data points should be present at
+                       equal time intervals.
+
+==========================================================================
+White Noise Time Series :
+
+-- A time series could also be noisy.
+-- A time series will be considered as white noise if the variables are 
+independent and if they are identically distributed with a mean of zero.
+-- This means that all the variables have the same variance.
+-- And also, each value in this time series has zero correlation with 
+the other. 
+
+Why is the absence of noise important in forecasting and analysis?
+
+1. Prediction -- if the time series is white noise, then,the model will 
+                 not be a reasonable one to make sensible predictions.
+                 Because white noise time series consists of only random values.
+
+2. Model diagnostics -- The errors in the time series forecast model would
+                        ideally be white noise. 
+
+When you are able to see white noise in the time series model, it 
+represents that part which cannot be further modelled. 
+
+On the contrary , if there is no white noise in the model output, then
+it means that there is still further scope for improvement. 
+---------------------------------------------------------------------------
+
+y = f(t)
+
+y (t) = y(t-1) + y(t-2) +...... ==> correlation is a very important 
+
+because my present y value should be dependent on the previous y values.
+==============================================================================
+Time Series models:
+
+AR - Auto regressive model :
+
+ y = mx+c  
+
+ y = b1x1 + b2x2 + b3x3 + ..+bnxn + c 
+
+The regression technique used on a time series data looks like below:
+
+X(t+1) = b0 + b1*X(t) + b2*X(t-1) + b3*X(t-2)
+
+Here, the input variables -> X(t-1) and X(t-2) are observations taken at previous 
+time steps.They are called lag variables.
+
+It is called as auto regressive model because the regression model uses the 
+data from the same input variable at previous time steps. 
+
+Eg: demand of OnePlus Nord 
+
+demand of its previous smart phones 
+
+t - present, t+1 --> the immediate future , t+2 ....
+
+t-1 --> the immediate past , t-2 , t-3 etc., 
+=============================================================================================
+
+Moving Average model:
+
+It's a very simple and naive approach in time series modelling.
+
+This model states that --> the next observation is the mean of all past 
+                           observations.
+
+Note: the no of past observations considered = window size
+
+
+Even though this model is very simple, this works really good in the sense 
+that it predicts the future values almost accurately. 
+
+=============================================================================================
+ARIMA model:
+
+Auto Regressive Integrated Moving Average 
+
+This model is a generalization of the simpler methods - auto regression and moving average
+by adding a notion of integration.
+
+I --> Integrated -- use the differencing of the raw observations ( subtracting the present
+observation from the previous step observation). Hence, making the time series data
+a stationary one. 
+
+ARIMA(p,d,q)
+
+p --> auto regressive part  --PACF 
+d --> the number of times the raw observations are differenced 
+q --> the size of the moving average window. -- ACF 
+
+
+=============================================================================================
+ACF:
+
+value 1 -- t-3
+value 2 -- t-2
+value 3 -- t-1
+value 4 -- t 
+ACF ( X(t), (t-3)) --- in ACF, the coefficient includes the correlation between t, t-1 ; t-1,t-2;
+
+                       t-2, t-3  -- > in turn it identifies the correltation between t and t-3
+
+ACF -- helps in finding the moving average window value. (i.e) q term
+=============================================================================================
+PACF 
+
+PACF ( X(t) , X(t-3)) -- the intermediate correlation values will not be considered.
+                         it just considers the values at t and t-3 and gives the correlation
+                         value output.
+
+PACF -- helps in finding the auto regressive value (i.e) p term.
+=============================================================================================
+Ref:
+
+https://machinelearningmastery.com/time-series-forecasting-methods-in-python-cheat-sheet/
+https://towardsdatascience.com/an-end-to-end-project-on-time-series-analysis-and-forecasting-with-python-4835e6bf050b
+https://www.machinelearningplus.com/time-series/arima-model-time-series-forecasting-python/
+
+========================================================================================================
+
+
+
+
+
+
+
+
+
+

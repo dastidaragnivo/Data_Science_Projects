@@ -1,0 +1,46 @@
+Hierarchical clustering :
+
+hierarchy can be formed either in the "top down" approach or in the 
+"bottom up" approach.
+
+Agglomerative clustering:
+
+-- This is the bottom up approach.
+-- Every data point is treated as a single cluster initially.
+-- Then, groups are created with the combination of the nearest points.
+-- This process is repeated until finally one single cluster is formed
+which encompasses all the data points.
+
+Divisive clustering :
+
+-- This is the top down appraoch.
+-- All the data points are considered as one cluster initially.
+-- Then, splitting begins--> yields in different groups or clusters (until 
+each point is separated out as a single cluster)
+
+
+Dendrogram :
+
+-- It is a graphical way to display the hierarchical sequence of clusters.
+-- In the dendrogram, each node represents a cluster
+-- Each leaf node is an individual data point.
+-- Root node / top node represents the whole dataset (final single cluster)
+-- All the internal nodes will have only 2 children. 
+-- Note that the groups are formed from those children nodes only.
+
+Working of the agglomerative clustering:
+
+-- Proximity matrix(distance matrix) will be computed first.
+-- Will start checking for those points that are nearer to each other
+-- The nearest 2 points are merged together 
+-- The proximity matrix is updated
+
+Again the above steps repeat until only one single cluster remains.
+
+============================================================================== 
+
+
+
+
+
+

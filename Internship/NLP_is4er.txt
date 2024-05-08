@@ -1,0 +1,144 @@
+
+Data : "Natural language processing is an upcoming field and I am looking forward to 
+learn it. At Edureka, they seem to cover natural language processing 
+topics."
+
+Steps involved in a text processing pipeline:
+---------------------------------------------
+
+1.Tokenisation -splitting the input paragraph into manageable chunks(word / sentence)
+
+	Word tokenizer : splits the input sentence/paragragh into individual words.
+        Sentence tokenizer : splits the input sentence/paragragh into individual sentences.
+
+2.Stop word removal : an in built list of stop words in NLTK for 17 languages.
+(western)
+
+It's a word filtration step. you filter out those words that are not important
+(i.e) the words that are available in the predefined stop word list are filtered out.
+
+---> done to achieve dimensionality reduction.
+
+Text transformation & dimensionality reduction : Stemming / Lemmatization
+
+3. Stemming: Simple process of eliminating the suffixes of the input words in 
+order to figure out the root words.
+
+"I like helping other people. My friend Nithin also helps many orphans. Some
+old age people at my place are also being helped by several NGOs."
+
+helping --> help , helps --> help , helped --> help
+
+what if the word is "beautiful"? Stemming --> beauti : we do not have this
+word in the English dictionary. --> disadvantage
+
+4. Lemmatization : The process of finding the root words of the input words with
+the help of an in-built dictionary. 
+
+lemmatize the word - beautiful --> beauty 
+
+Saw --> Noun & Verb
+
+1. I saw a Lion.  --> pass such words to a lemmatizer along with it's POS tag.
+
+2. The tree was cut with a saw. 
+
+for word "saw" in the first sentence --> lemmatizer(saw, "VBD") --> see
+
+for word "saw" in the second sentence --> lemmatizer(saw, "N") --> saw 
+
+
+5. POS tagging : the step in which the input words are tagged with the appropriate
+Part of Speech.
+
+6. NER : Named Entity Recognition : finding the type of the Noun that is used.
+
+Person's name , Place name, Company name, Thing's name --> Nouns
+
+Vectorizing the input text:
+---------------------------
+
+Count Vectorizer / Bag of words, Tf-Idf
+
+1.Count Vectorizer / Bag of words model:
+--------------------------------------
+Sent 1 --> Ravi and I play tennis together.
+Sent 2 --> I like playing tennis.
+
+step 1 --> words will be tokenised
+step 2 --> the word freq will be calculated 
+
+eg: Ravi - 1 , I - 2 , tennis - 2 , play -1 , playing - 1, together -1, and-1
+
+step 3 : figure out the top n most frequently occurring words. you can select
+any n value
+
+eg : n = 4
+
+therefore, features will be the words -- Tennis, I, Ravi, and 
+         Tennis, I, Ravi, and
+Sent 1 --> 1 , 1, 1, 1
+Sent 2 --> 1, 1, 0 , 0 
+
+------------------------------------------------------------------------------
+2.Tf-Idf : Term frequency - Inverse Document frequency
+------------------------------------------------------ 
+--useful in topic modeling/classification
+
+Ravi and I play tennis together.
+I like playing tennis.
+
+words: Ravi, and, I , play, tennis, playing, together 
+
+term frequency : Ravi - 1 , I - 2 , tennis - 2, together - 1, playing -1 
+                 and - 1 ,play - 1 , like - 1
+
+Inverse document frequency : finding the words that are unique to a document
+so that the document can be identified easily. 
+
+o/p of IDF --> individual scores for the words such that the words with
+higher score are more unique to a particular document while the words with
+lower scores are less unique to a particular document.
+
+So, now the features will be --> Ravi, together, like 
+
+Sent 1 --> 1, 1, 0
+Sent 2 --> 0, 0, 1
+
+=============================================================================
+
+Ambiguities in NLP:
+-------------------
+
+1. When a Noun is being used as an adjective:
+
+Ram purchased a few gold ornaments for his wife last week. And this was
+because they are going to celebrate their silver jubilee next month. 
+
+
+2. The ambiguity that arises because of pronouns and nouns.
+
+A cow is climbing a hill. It got tired quite soon. It was very steep.
+
+=============================================================================
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
